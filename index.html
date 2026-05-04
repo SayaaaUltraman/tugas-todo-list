@@ -25,15 +25,31 @@
                 return;
             }
 
-            // Membuat elemen list baru
+            //Buat elemen list baru
             let li = document.createElement("li");
-            li.textContent = input.value;
+            li.textContent = input.value + " "; // Ditambah spasi agar tidak menempel dengan tombol
             
-            // Memasukkan list ke dalam halaman
+            //MULAI FITUR DELETE
+            //Buat elemen tombol hapus
+            let tombolHapus = document.createElement("button");
+            tombolHapus.textContent = "Hapus";
+            tombolHapus.style.color = "red"; // Sekedar pemanis agar teksnya merah
+            
+            // Fungsi ketika tombol hapus diklik
+            tombolHapus.onclick = function() {
+                daftar.removeChild(li); 
+            };
+
+            //Masukkan tombol hapus ke dalam baris tugas
+            li.appendChild(tombolHapus);
+            //AKHIR FITUR DELETE
+
+            // Masukkan list beserta tombol hapusnya ke dalam halaman
             daftar.appendChild(li);
             
-            // Mengosongkan kotak input setelah ditambah
+            //Ksongkan kotak input dan mengembalikan kursor
             input.value = ""; 
+            input.focus(); 
         }
     </script>
 </body>
