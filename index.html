@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h2>To-Do List Saya</h2>
+
+    <div>
+        <input type="text" id="inputTugas" placeholder="Ketik tugas baru di sini...">
+        <button onclick="tambahTugas()">Tambah</button>
+    </div>
+
+    <ul id="daftarTugas"></ul>
+
+    <script>
+        function tambahTugas() {
+            let input = document.getElementById("inputTugas");
+            let daftar = document.getElementById("daftarTugas");
+
+            if (input.value === "") {
+                alert("Tugas tidak boleh kosong!");
+                return;
+            }
+
+            // Membuat elemen list baru
+            let li = document.createElement("li");
+            li.textContent = input.value;
+            
+            // Memasukkan list ke dalam halaman
+            daftar.appendChild(li);
+            
+            // Mengosongkan kotak input setelah ditambah
+            input.value = ""; 
+        }
+    </script>
+</body>
+</html>
